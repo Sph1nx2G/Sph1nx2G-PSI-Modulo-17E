@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Euromilhões</title>
+
+    <style media="screen">
+    button {
+        background-color: #c95f6f;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius:8px;
+        }
+        fieldset {
+          background-color: white;
+          margin: 20px;
+          padding: 0 10px 10px;
+          border: 1px solid #666;
+          border-radius: 8px;
+          box-shadow: 0 0 10px #666;
+          padding-top: 10px;
+        }
+        legend {
+          padding: 2px 4px;
+          background: #fff;
+          border-radius: 8px;
+        }
+
+
+    </style>
+  </head>
+  <body style="background-color:#c4e8ff">
+    <form name="form">
+      <p style="text-align:right; font-size:24px; font-family:'Arial Black'"><b>Aluno: Edgar Costa nº7 12ºB</b></p>
+          <fieldset  style="width:40%; font-size:24px; font-family:'Comic Sans MS';margin: auto; border:12px solid; border-color:#517dc9; display: block; background-color:;">
+            <legend style=" font-size:24px;border:8px solid; border-radius: 15px; ;border-color:#517dc9; ">Euromilhões</legend>
+            <table style= "width:100%">
+            <tr align="center" >
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+
+            </tr>
+            <tr align="center">
+              <td><input  name="n1" disabled="true" type="text" value=""></td>
+              <td><input  name="n2" disabled="true" type="text" value=""></td>
+              <td><input  name="n3" disabled="true" type="text" value=""></td>
+              <td><input  name="n4" disabled="true" type="text" value=""></td>
+              <td><input  name="n5" disabled="true" type="text" value=""></td>
+            </tr>
+          </table>
+          <br>
+            <img src="euromilhoes.jpg" align="right" border="0" width="500" height="250">
+            <table style= "width:40%">
+            <tr align="center" >
+              <td>1</td>
+              <td>2</td>
+            </tr>
+            <tr align="center">
+              <td><input  name="s1" disabled="true" type="text" value=""></td>
+              <td><input  name="s2" disabled="true" type="text" value=""></td>
+            </tr>
+          </table>
+          <br><br>
+          <pre>      <button type="button" onclick="Euro();">Sortear</button>  <button type="reset" >Limpar</button></pre>
+          </fieldset>
+    </form>
+
+    <script type="text/javascript">
+        function Euro()
+        {
+          document.form.n1.value = 1+Math.floor(Math.random()*50);
+          document.form.n2.value = 1+Math.floor(Math.random()*50);
+          while(document.form.n2.value == document.form.n1.value)
+          {
+              document.form.n2.value = 1+Math.floor(Math.random()*50);
+          }
+
+          document.form.n3.value = 1+Math.floor(Math.random()*50);
+          while(document.form.n3.value == document.form.n2.value || document.form.n3.value == document.form.n1.value)
+          {
+              document.form.n3.value = 1+Math.floor(Math.random()*50);
+          }
+
+          document.form.n4.value = 1+Math.floor(Math.random()*50);
+          while(document.form.n4.value == document.form.n3.value || document.form.n4.value == document.form.n2.value || document.form.n4.value == document.form.n1.value )
+          {
+              document.form.n4.value = 1+Math.floor(Math.random()*50);
+          }
+
+          document.form.n5.value = 1+Math.floor(Math.random()*50);
+          while(document.form.n5.value == document.form.n4.value || document.form.n5.value == document.form.n3.value || document.form.n5.value == document.form.n2.value || document.form.n5.value == document.form.n1.value )
+          {
+              document.form.n5.value = 1+Math.floor(Math.random()*50);
+          }
+
+          document.form.s1.value = 1+Math.floor(Math.random()*12);
+
+          document.form.s2.value = 1+Math.floor(Math.random()*12);
+          while(document.form.s2.value == document.form.s1.value)
+          {
+              document.form.s2.value = 1+Math.floor(Math.random()*12);
+          }
+          var nrs = [Number(document.form.n1.value),Number(document.form.n2.value),Number(document.form.n3.value),Number(document.form.n4.value),Number(document.form.n5.value)];
+          var etrs = [Number(document.form.s1.value),Number(document.form.s2.value)];
+          nrs.sort(function(a, b){return a - b});
+          etrs.sort(function(a, b){return a - b});
+
+
+
+          document.form.n1.value = nrs[0];
+          document.form.n2.value = nrs[1];
+          document.form.n3.value = nrs[2];
+          document.form.n4.value = nrs[3];
+          document.form.n5.value = nrs[4];
+
+          document.form.s1.value = etrs[0];
+          document.form.s2.value = etrs[1];
+        }
+    </script>
+
+  </body>
+</html>
